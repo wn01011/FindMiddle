@@ -1,0 +1,262 @@
+@font-face {
+  font-family: "PFStardust";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/PFStardust.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "PFStardust";
+}
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+#map {
+  position: relative;
+  width: 100%;
+  height: 65vh;
+  min-width: 300px;
+  margin: auto;
+  margin-bottom: 5vh;
+  padding: 5vh 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#firstPerson {
+  position: fixed;
+  top: 45%;
+  left: -50%;
+  width: 30%;
+  min-width: 140px;
+  height: 15%;
+  background-color: rgba(115, 115, 247, 0.692);
+  transition: 2s left;
+  display: flex;
+  justify-content: right;
+  text-align: right;
+  align-items: center;
+  padding: 20px;
+  padding-top: 40px;
+  font-size: 2rem;
+  border-radius: 30px;
+}
+#firstPerson::after {
+  content: "";
+  position: absolute;
+  top: -55px;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("./metamong-back.png");
+  transition: 0.2s;
+}
+#firstPerson:hover::after {
+  top: -100px;
+  width: 150px;
+  height: 150px;
+}
+#secondPerson::after {
+  content: "";
+  position: absolute;
+  top: -55px;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("./metamong-front.png");
+}
+#secondPerson {
+  position: fixed;
+  top: 45%;
+  right: -50%;
+  width: 30%;
+  min-width: 140px;
+  height: 15%;
+  background-color: rgba(115, 115, 247, 0.692);
+  transition: 2s right;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 20px;
+  padding-top: 40px;
+  font-size: 2rem;
+  color: black;
+  transition: 0.2s;
+  border-radius: 30px;
+}
+#firstPerson,
+#secondPerson {
+  line-height: 1.8rem;
+}
+#secondPerson:hover::after {
+  top: -100px;
+  width: 150px;
+  height: 150px;
+  transition: 0.2s;
+}
+#firstPerson.moveFirst {
+  left: 0;
+}
+#secondPerson.moveSecond {
+  right: 0;
+}
+#addressView {
+  display: flex;
+  justify-content: center;
+}
+#switch {
+  position: fixed;
+  bottom: -5%;
+  left: 0;
+  height: 40%;
+  width: 100%;
+  z-index: -1;
+  opacity: 1;
+  background-color: lightgoldenrodyellow;
+}
+
+@media only screen and (max-width: 1280px) {
+  #firstPerson,
+  #secondPerson {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  #firstPerson,
+  #secondPerson {
+    line-height: 1.5rem;
+    font-size: 1.2rem;
+  }
+}
+@media only screen and (max-width: 822px) {
+  #firstPerson,
+  #secondPerson {
+    line-height: 1rem;
+    font-size: 1.2rem;
+  }
+}
+@media only screen and (max-height: 800px) {
+  body button {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    margin: 0 0 0 0;
+  }
+}
+input {
+  background-image: url("./Input.png");
+  background-size: 100% 100%;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+}
+
+input:focus {
+  outline: none;
+}
+input:hover {
+  animation-name: inputAnim;
+}
+@keyframes inputAnim {
+  from {
+    transform: translate(0);
+  }
+  50% {
+    transform: translate(5px);
+  }
+  to {
+    transform: translate(0);
+  }
+}
+input::placeholder {
+  color: white;
+}
+#middlePoint {
+  position: fixed;
+  right: 5vw;
+  top: 8vh;
+  width: 50px;
+  height: 50px;
+  z-index: 10;
+  background-image: url("./metamong-close.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: 0.2s width, height;
+}
+#middlePoint:hover {
+  width: 100px;
+  height: 100px;
+}
+
+#map::after {
+  content: "";
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 110vw;
+  height: 80vh;
+  opacity: 0.7;
+  background-image: url("./border.png");
+  z-index: 100000000;
+  pointer-events: none;
+}
+
+button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5vh;
+  height: 4vh;
+  border-radius: 5%;
+  margin-top: 0vh;
+  margin-left: 65vw;
+  margin-right: 30vw;
+  font-size: 1rem;
+  background-color: black;
+  border: 5px solid rgb(70, 70, 70);
+  color: white;
+  transition: width, height, font-size, 0.2s;
+}
+button:hover {
+  width: 6vh;
+  height: 5vh;
+  font-size: 1.3rem;
+}
+button.active::after {
+  content: "";
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 3px solid #f83b01;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 1.5s infinite;
+}
+@keyframes ring {
+  0% {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <title>간단한 지도 표시하기</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=d7wxiw8fm8&submodules=geocoder"
+    ></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=15c4c7ce4c3a58009b5b4424c4213657&libraries=services"
+    ></script>
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <div>
+      <input
+        style="
+          width: 35%;
+          height: 10%;
+          text-align: left;
+          padding: 0px 10px;
+          margin: 10px 32.5%;
+          margin-top: 8vh;
+          color: white;
+          position: relative;
+        "
+        type="text"
+        value=""
+        id="address_kakao"
+        placeholder="첫번째 주소 입력 후 엔터"
+        autocomplete="off"
+      />
+      <input
+        style="
+          width: 40%;
+          text-align: left;
+          padding: 0px 10px;
+          margin: 10px 30%;
+          color: white;
+          position: relative;
+        "
+        type="text"
+        value=""
+        id="address_kakao2"
+        placeholder="두번째 주소 입력 후 엔터"
+        autocomplete="off"
+      />
+    </div>
+    <div id="addressView"></div>
+    <button id="searchBtn" class=""></button>
+    <div
+      id="centerAddress"
+      style="
+        position: fixed;
+        left: 40px;
+        top: 50px;
+        background: color #f0f0f0;
+        z-index: 1;
+      "
+    ></div>
+    <div id="firstPerson">
+      <p></p>
+    </div>
+    <div id="secondPerson">
+      <span></span>
+      <p></p>
+    </div>
+    <div id="middlePoint"></div>
+    <img id="switch" src="./switch.png" alt="" />
+    <script src="./script.js"></script>
+  </body>
+</html>
